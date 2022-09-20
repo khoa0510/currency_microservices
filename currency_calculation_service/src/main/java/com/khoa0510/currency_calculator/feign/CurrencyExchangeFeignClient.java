@@ -2,7 +2,6 @@ package com.khoa0510.currency_calculator.feign;
 
 import com.khoa0510.currency_calculator.model.CalculatedAmount;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
