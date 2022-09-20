@@ -21,4 +21,9 @@ public class CurrencyCalculationController {
     public ResponseEntity<?> getCalculatedAmount(@PathVariable("from") String from, @PathVariable("to") String to, @PathVariable("quantity") BigDecimal quantity){
         return ResponseEntity.ok(currencyCalculationService.getCalculatedAmount(from, to, quantity));
     }
+
+    @GetMapping("feign/from/{from}/to/{to}/quantity/{quantity}")
+    public ResponseEntity<?> getCalculatedAmountWithFeign(@PathVariable("from") String from, @PathVariable("to") String to, @PathVariable("quantity") BigDecimal quantity){
+        return ResponseEntity.ok(currencyCalculationService.getCalculatedAmountWithFeign(from, to, quantity));
+    }
 }
