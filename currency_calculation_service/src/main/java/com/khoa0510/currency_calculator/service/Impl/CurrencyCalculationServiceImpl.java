@@ -14,7 +14,8 @@ public class CurrencyCalculationServiceImpl implements CurrencyCalculationServic
     RestTemplate restTemplate;
 
     public CalculatedAmount getCalculatedAmount(String from, String to, BigDecimal quantity) {
-        CalculatedAmount calculatedAmount = restTemplate.getForObject("currency_exchange/from/{from}/to/{to}", CalculatedAmount.class);
+        String url = "https://currency-exchange-service/currency_exchange/from/"+from+"/to/"+to;
+        CalculatedAmount calculatedAmount = restTemplate.getForObject(url, CalculatedAmount.class);
         calculatedAmount.setQuantity(quantity);
         calculatedAmount.setTotalCalculatedAmount(calculatedAmount.getConversionMultiple().multiply(quantity));
         return calculatedAmount;
