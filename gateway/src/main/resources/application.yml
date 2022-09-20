@@ -1,0 +1,11 @@
+server:
+  port: 8765
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: currencyCalculationService
+          uri: http://localhost:8100/
+          predicates:
+            - Path=/api/v1/currency_exchange/**
